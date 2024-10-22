@@ -163,6 +163,12 @@ fn main() {
                 }
             };
 
+             // Check if the initial position is within the grid boundaries
+            if x < 0 || x > max_x || y < 0 || y > max_y {
+                println!("🚨 Initial rover position ({}, {}) is outside the grid boundaries. Please try again.", x, y);
+                continue;
+            }
+
             let direction = match robot_data[2].to_uppercase().as_str() {
                 "N" => Direction::N,
                 "E" => Direction::E,

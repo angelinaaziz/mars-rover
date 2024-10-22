@@ -42,6 +42,20 @@ If a rover moves beyond the grid, it is lost, but its last known position is sav
 
     `cargo run`
 
+  🛠️ Setup with Docker 🐳
+ --------------------------
+ If you prefer to run the project using Docker, follow these steps:
+
+1. **Build the Docker Image**
+First, make sure you have Docker installed and running. Then, from the project directory, build the Docker image:
+
+`docker build -t mars-rover .`
+
+2. **Run the Project in Docker**
+After building the image, you can run the project in an interactive terminal using:
+
+`docker run -it mars-rover`
+
 📝 Usage Instructions
 ---------------------
 
@@ -110,3 +124,4 @@ The program provides feedback for:
 -   **Obstacle Detection**: Add obstacles to the grid that rovers must avoid.
 -   **Save/Load Functionality**: Save rover progress to resume exploration later.
 -   **Enhanced UI**: Create a graphical user interface for a more immersive experience.
+
