@@ -118,10 +118,57 @@ The program provides feedback for:
 -   **Invalid rover positions**: If your input isn't a valid position (e.g., non-numeric coordinates), you'll be asked to correct it.
 -   **Invalid commands**: Only `L`, `R`, and `F` are valid commands, and the program will alert you to any mistakes.
 
-🌟 Future Improvements
+🌟 Future  Feature Improvements
 ----------------------
+1. **Obstacle Detection & Avoidance**:
 
--   **Obstacle Detection**: Add obstacles to the grid that rovers must avoid.
--   **Save/Load Functionality**: Save rover progress to resume exploration later.
--   **Enhanced UI**: Create a graphical user interface for a more immersive experience.
+    -   **Description**: Add randomly or manually placed obstacles on the grid that rovers must avoid during exploration. Rovers should detect these obstacles in advance and either stop or reroute.
+    -   **Implementation**: Introduce additional grid cells marked as obstacles. Modify the movement logic to prevent rovers from entering these cells. If a rover encounters an obstacle, it could prompt the user to reroute or auto-terminate the rover.
+    -   **Challenge**: Incorporate a pathfinding algorithm (e.g., A* or Dijkstra) to handle more complex navigation scenarios.
 
+    
+2. **Save/Load Functionality**:
+
+    -   **Description**: Enable saving the current grid state and rover positions so users can resume exploration later.
+    -   **Implementation**: Serialize the current state of the grid, rovers, and any additional game data into a file. On startup, allow the user to load the saved state or start a new session.
+    -   **Challenge**: Ensure smooth serialization and deserialization of the game state to prevent data corruption.
+    
+ 3. **Enhanced UI/Graphical User Interface (GUI)**:
+
+    -   **Description**: Develop a graphical interface to visualize the grid, rover movements, obstacles, and more. This can provide a richer and more immersive experience for users.
+    -   **Implementation**: Use a GUI library like **Tauri** (for Rust) or consider transitioning to a game engine like **Bevy** for advanced graphics.
+    -   **Challenge**: Rendering performance for large grids and managing real-time interactivity between the user and the GUI.-   
+    
+4. **Rover Battery & Resource Management**:
+
+    -   **Description**: Add a battery or fuel system where rovers have limited energy for exploration. Users will need to strategize and make efficient use of the rover's resources.
+    -   **Implementation**: Introduce a countdown system to simulate resource depletion. Allow users to recharge or refuel rovers at certain points on the grid.
+    -   **Challenge**: Balancing resource management with exploration gameplay to maintain user engagement.
+
+💻 Code Improvements
+------------------
+
+1. **Refactor to Make Code More Modular**
+
+-  **Why**: Your code could be broken down into smaller, more manageable modules to increase readability and reusability.
+-  **How**: Separate responsibilities into different files or modules, such as creating a module for rover movement, grid management, and input/output handling.
+- **Example**:
+<br>mod rover: Manages all rover-related logic (movement, rotation).
+<br>mod grid: Manages the grid and bounds-checking.
+<br>mod input: Manages all user inputs and validation.
+<br>
+
+2.  **Unit Tests**
+
+- **Why**: Ensure code reliability by testing individual units of logic.
+- **How**: Use Rust's built-in testing framework to add unit tests for rover movements, boundary checks, and user inputs.
+
+3. **Implement Monitoring**
+
+- **Why**: If this project were to scale, you'd want to monitor performance, errors, and uptime.
+- **How**: Add a logging framework and consider integrating with a tool like Prometheus for metrics collection.
+Use Grafana dashboards to visualize how  rovers are being deployed, errors encountered, and the overall uptime of the system.
+
+4. **Add A Timeout**
+- **Why**: Add a timeout limit for rover commands to avoid infinite loops or stuck conditions.
+- **How**: Implement a timer that tracks the time spent executing rover commands. If the time exceeds a predefined limit (e.g., 10 seconds), stop command execution and notify the user that the rover took too long. This prevents unintended endless processing.
