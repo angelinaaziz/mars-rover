@@ -156,7 +156,6 @@ The program provides feedback for:
 <br>mod rover: Manages all rover-related logic (movement, rotation).
 <br>mod grid: Manages the grid and bounds-checking.
 <br>mod input: Manages all user inputs and validation.
-<br>
 
 2.  **Unit Tests**
 
