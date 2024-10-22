@@ -1,2 +1,2 @@
 # mars-rover
-A rust-powered Mars Rover simulator! Guides rovers across a grid, dodge hazards, and avoid getting "LOST" in space (literally).
+A rust-powered Mars Rover simulator! Guides rovers across a grid, Try not to get "LOST".
